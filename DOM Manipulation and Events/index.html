@@ -13,18 +13,18 @@
     <p id="description">This is a description to manipulate</p>
 
     <input type="email" name="email" id="email" onkeydown="console.log('key down!')">
-    <p id="emailAlert">Alert email</p>
+    <p id="emailAlert"></p>
 
     <input type="password" name="password" id="password">
     <p id="passAlert"></p>
 
     <!-- Call the javascript function using onclick -->
     <button type="submit" onclick="ChangeClick()" id="submit">Click Me</button>
-    <!-- To crate js alert using onclick and mouse hover-->
+    <!-- To create js alert using onclick and mouse hover-->
     <button type="submit" id="clicky" onclick="alert('Button clicky!')"
         onmouseover="this.style.backgroundColor='yellow'" onmouseout="this.style.backgroundColor='grey'">Clicky</button>
 
-    <button type="submit" id="send" onclick="sendMe()">Send</button>
+    <button type="submit" id="send" onclick="sendMail()">Send</button>
 
     <!-- JavaScript -->
     <!-- To Manipulate DOM and Events -->
@@ -47,25 +47,22 @@
         });
 
         // Using Key Events
-        function sendMe() {
-            if (document.getElementById("send").click) {
-                let emailInput = document.getElementById("email");
-                if (emailInput === "" || emailInput === null) {
-                    // let emailAlert = document.getElementById("emailAlert");
-                    // emailAlert.innerHTML = "Please input email first";
-                    alert("Email cannot be empty");
-                }
-            }
-        }
-
-
-        function sendMe() {
+        function sendMail() {
             let emailInput = document.getElementById("email");
+            let passInput = document.getElementById("password");
             if (emailInput.value === "") {
                 let emailAlert = document.getElementById("emailAlert");
+
                 emailAlert.innerHTML = "Please input email first";
                 emailAlert.style.color = "red";
                 emailInput.style.borderColor = "red";
+            }
+            else if (passInput.value === "") {
+                let passAlert = document.getElementById("passAlert");
+
+                passAlert.innerHTML = "Please input password first";
+                passAlert.style.color = "red";
+                passInput.style.borderColor = "red";
             }
         }
     </script>
